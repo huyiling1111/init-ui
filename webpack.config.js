@@ -5,10 +5,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
 	entry: './src/app.js',
+	devServer: {
+		//指定服务器根目录
+		contentBase: './dist',
+    port: 9000
+  },
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
-		publicPath: "./"
+		//打包的时候需配置路径
+		// publicPath: "./"
 	},
 	module: {
 		rules: [
