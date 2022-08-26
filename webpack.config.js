@@ -2,14 +2,16 @@ const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
+const webpack = require('webpack')
 module.exports = {
+	mode: 'development',
 	entry: './src/app.js',
 	devServer: {
 		//指定服务器根目录
 		contentBase: './dist',
-    port: 9000
-  },
+		port: 9000,
+		hot: true,
+	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
@@ -45,6 +47,7 @@ module.exports = {
 		new VueLoaderPlugin(),
 		new HtmlWebpackPlugin(
 			{ template: './index.html' }
-		)
+		),
+		new webpack.HotModuleReplacementPlugin()
 	]
 };
