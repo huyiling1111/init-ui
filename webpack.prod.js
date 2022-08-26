@@ -2,18 +2,18 @@ const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const webpack = require('webpack')
+// const webpack = require('webpack')
 module.exports = {
 	mode: 'production',
 	entry: './src/app.js',
 	//建立打包后的文件与源代码所在行的映射
-	devtool: 'eval',
-	devServer: {
-		//指定服务器根目录
-		contentBase: './dist',
-		port: 9000,
-		hot: true,
-	},
+	// devtool: 'eval',
+	// devServer: {
+	// 	//指定服务器根目录
+	// 	contentBase: './dist',
+	// 	port: 9000,
+	// 	hot: true,
+	// },
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
@@ -52,6 +52,6 @@ module.exports = {
 		new HtmlWebpackPlugin(
 			{ template: './index.html' }
 		),
-		new webpack.HotModuleReplacementPlugin()
+		// new webpack.HotModuleReplacementPlugin()
 	]
 };
